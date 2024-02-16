@@ -224,7 +224,7 @@
                               />
                             </div>
                             <button
-                              @click="updateNotes(note.name)"
+                              @click="updateNotes(note)"
                               type="submit"
                               class="w-full text-white bg-rang-100 hover:bg-blue-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                             >
@@ -295,8 +295,6 @@ export default {
       const newNotes = document.getElementById("addNotes").value;
       const formData = new FormData();
       formData.append("addNotes", newNotes);
-      this.notess = response.data[0].id;
-          console.log(this.notess);
 
       await axios
         .post("http://localhost:5038/addtodo", formData)
@@ -323,15 +321,15 @@ export default {
       this.NotesEditModal = false;
     },
 
-    async updateNotes(name) {
-    const todoId = this.currentTodoId;
+    async updateNotes(id) {
+    const todoId = id;
     console.log(todoId);
     const updatedNotes = document.getElementById("updatedNotes").value;
     const formData = new FormData();
     formData.append("updatedNotes", updatedNotes);
 
     await axios
-      .put(`http://localhost:5038/updatetodo/?notenames=` + name, formData)
+      .put(`http://localhost:5038/updatetodo/${todoId}`, formData)
       .then((response) => {
         // Handle success
       })

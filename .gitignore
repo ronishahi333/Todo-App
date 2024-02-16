@@ -1,0 +1,39 @@
+# Node.js / NPM / Yarn
+node_modules/
+npm-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# Server-specific
+/server/node_modules/
+/server/.env
+/server/.env.local
+/server/dist/
+
+# Client-specific
+/client/node_modules/
+/client/.env
+/client/.env.local
+/client/dist/
+
+# Logs and Temporary Files
+logs/
+tmp/
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+
+# IDE/Editor Specific
+.vscode/
+.idea/
+
+# Compiled Code / Binaries
+bin/
+dist/
+
+# User-specific files
+*.swp
+*.swo
+*.swn

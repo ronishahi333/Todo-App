@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const mongodb = require('mongodb').MongoClient;
 const multer = require('multer');
-const { MongoClient } = require('mongodb');
+const { MongoClient, ObjectId } = require('mongodb');
 
 
 const app = express();
@@ -38,12 +38,12 @@ app.post('/addtodo',multer().none(),(request,response)=>{
 })
 
 app.put('/updatetodo/:id', multer().none(), (request, response) => {
-    const todoId = request.body.id;
-    //const todoId = request.params.id;
+    const todoId = request.params.id;
     const updatedDescription = request.body.updatedNotes;
+    console.log("From Server",todoId);
 
     database.collection("todocollections").updateOne(
-        { id: todoId },
+        { _id: todoId },
         { $set: { description: updatedDescription } },
         (error, result) => {
             if (error) {
