@@ -8,7 +8,7 @@ const { MongoClient, ObjectId } = require('mongodb');
 const app = express();
 app.use(cors());
 
-const CONNECTION_STRING = "mongodb+srv://ronishahi333:Aussiesmaxwell32@cluster0.becrx6n.mongodb.net/?retryWrites=true&w=majority"
+const CONNECTION_STRING = "mongodb+srv://username:password@cluster0.becrx6n.mongodb.net/?retryWrites=true&w=majority"
 
 const databaseName = "tododb";
 let database = "";
