@@ -37,23 +37,23 @@ app.post('/addtodo',multer().none(),(request,response)=>{
     })
 })
 
-app.put('/updatetodo/:id', multer().none(), (request, response) => {
-    const todoId = request.params.id;
-    const updatedDescription = request.body.updatedNotes;
-    console.log("From Server",todoId);
+// app.put('/updatetodo/:id', multer().none(), (request, response) => {
+//     const todoId = new ObjectId(request.params.id);
+//     const updatedDescription = request.body.updatedNotes;
+//     console.log("From Server",todoId);
 
-    database.collection("todocollections").updateOne(
-        { _id: todoId },
-        { $set: { description: updatedDescription } },
-        (error, result) => {
-            if (error) {
-                response.status(500).json({ error: 'Internal Server Error' });
-            } else {
-                response.json("Edit Successfully");
-            }
-        }
-    );
-});
+//     database.collection("todocollections").updateOne(
+//         { _id: todoId },
+//         { $set: { description: updatedDescription } },
+//         (error, result) => {
+//             if (error) {
+//                 response.status(500).json({ error: 'Internal Server Error' });
+//             } else {
+//                 response.json("Edit Successfully");
+//             }
+//         }
+//     );
+// });
 
 app.delete('/deletetodo',(request,response)=>{
     database.collection("todocollections").deleteOne({
